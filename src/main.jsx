@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider } from 'react-router-dom';
 
-import { HeroesApp } from './HeroesApp';
+import { router } from './router/index';
 import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 
-  <HeroesApp />
+  <RouterProvider router={ router }/>
 
 );

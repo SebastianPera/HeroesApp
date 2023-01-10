@@ -1,8 +1,14 @@
 
+import { Outlet } from 'react-router-dom';
+import { Navbar } from './ui/components';
+
 export const HeroesApp = () => {
   return (
-    <>
-      <div>HeroesApp</div>
-    </>
+    <div>
+      <Navbar/>
+      <main className='container'>
+        <Outlet/>
+      </main>
+    </div>
   )
 }

@@ -1,21 +1,35 @@
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { HeroesApp } from "../HeroesApp";
+import { LoginPage } from "../auth";
+import { DcPage, MarvelPage, NotFound, HeroPage, SearchPage } from "../heroes";
 
-import { createBrowserRouter } from "react-router-dom"
-import { MarvelPage } from './../heroes/pages/MarvelPage';
-import { DcPage } from './../heroes/pages/DcPage';
-import { LoginPage } from './../auth/pages/LoginPage';
 
-
-export const router = createBrowserRouter ([
+export const router = createBrowserRouter([
   {
-    path: 'marvel',
-    element: <MarvelPage/>
+    path: "/",
+    element: <HeroesApp />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "marvel",
+        element: <MarvelPage />,
+      },
+      {
+        path: "dc",
+        element: <DcPage/>,
+      },
+      {
+        path: "search",
+        element: <SearchPage/>,
+      },
+      {
+        path: "hero",
+        element: <HeroPage/>,
+      },
+    ],
   },
   {
-    path: 'about',
-    element: <DcPage/>
+    path: "login",
+    element: <LoginPage />,
   },
-  {
-    path: 'login',
-    element: <LoginPage/>
-  }
-])
+]);
