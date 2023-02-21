@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import 'animate.css'
+import "animate.css";
 
 const CharacterByHero = ({ alter_ego, characters }) => {
   if (alter_ego === characters) return <></>;
@@ -31,7 +31,7 @@ export const HeroeCard = ({
               <h5 className="card-title"> {superhero}</h5>
               <p className="card-text"> {alter_ego}</p>
 
-              <CharacterByHero characters={ characters } alter_ego={ alter_ego }/>
+              <CharacterByHero characters={characters} alter_ego={alter_ego} />
 
               <p className="card-text">
                 <small className="text-muted">{first_appearance}</small>

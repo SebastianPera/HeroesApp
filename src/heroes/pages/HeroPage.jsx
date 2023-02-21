@@ -5,14 +5,13 @@ import { useMemo } from "react";
 
 export const HeroPage = () => {
   const { id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const hero = useMemo(() => getHeroById(id), [id]) ;
+  const hero = useMemo(() => getHeroById(id), [id]);
 
   const onNavigateBack = () => {
     navigate(-1);
-  }
-
+  };
 
   if (!hero) {
     return <Navigate to="/marvel" />;
@@ -41,10 +40,12 @@ export const HeroPage = () => {
           </li>
         </ul>
 
-          <h5 className="mt-3">Characters</h5>
-          <p>{hero.characters}</p>
+        <h5 className="mt-3">Characters</h5>
+        <p>{hero.characters}</p>
 
-          <button className="btn btn-outline-primary" onClick={ onNavigateBack }>Regresar</button>
+        <button className="btn btn-outline-primary" onClick={onNavigateBack}>
+          Regresar
+        </button>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { HeroeCard } from "./../components/HeroeCard";
 import { useForm } from "./../../hooks/useForm";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import queryString from "query-string";
+// import queryString from "query-string";
 import { getHerosByName } from "./../helpers/getHerosByName";
 
 export const SearchPage = () => {
@@ -22,7 +22,7 @@ export const SearchPage = () => {
 
     navigate(`?q=${searchText}`);
   };
-  
+
   return (
     <>
       <h1>Search</h1>
@@ -49,8 +49,10 @@ export const SearchPage = () => {
           <h4>Results</h4>
           <hr />
 
-          {(query === '') ? (
-            <div className="alert alert-primary animate__animated animate__fadeIn">Search a hero</div>
+          {((query === "") || (query === null)) ? (
+            <div className="alert alert-primary animate__animated animate__fadeIn">
+              Search a hero
+            </div>
           ) : (
             heroes.length === 0 && (
               <div className="alert alert-danger animate__animated animate__fadeIn">

@@ -1,13 +1,17 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { HeroesApp } from "../HeroesApp";
 import { LoginPage } from "../auth";
 import { DcPage, MarvelPage, NotFound, HeroPage, SearchPage } from "../heroes";
-
+import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from "./PublicRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <HeroesApp />,
+    element: 
+      <PrivateRoute>
+        <HeroesApp />
+      </PrivateRoute>,
     errorElement: <NotFound />,
     children: [
       {
@@ -16,20 +20,23 @@ export const router = createBrowserRouter([
       },
       {
         path: "dc",
-        element: <DcPage/>,
+        element: <DcPage />,
       },
       {
         path: "search",
-        element: <SearchPage/>,
+        element: <SearchPage />,
       },
       {
         path: "hero/:id",
-        element: <HeroPage/>,
+        element: <HeroPage />,
       },
     ],
   },
   {
     path: "login",
-    element: <LoginPage />,
+    element: 
+    <PublicRoute>
+      <LoginPage />,
+    </PublicRoute>
   },
 ]);
